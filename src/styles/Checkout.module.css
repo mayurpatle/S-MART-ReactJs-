@@ -1,0 +1,53 @@
+/* src/styles/Checkout.module.css */
+.checkout {
+  margin: 50px;
+}
+
+.cartItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cartItem {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.total {
+  margin-top: 20px;
+}
+
+.checkoutForm {
+  margin-top: 30px;
+}
+
+.checkoutForm div {
+  margin-bottom: 10px;
+}
+
+.checkoutForm label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.checkoutForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.checkoutForm button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.checkoutForm button:hover {
+  background-color: #555;
+}

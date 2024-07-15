@@ -9,10 +9,11 @@ const Navbar = () => {
       {/* Container for  search box  */}
       <div className={styles.searchContainer}></div>
       {/*  left container  */}
-      <div className= {styles.leftContainer}>
+      <div className={styles.leftContainer}>
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/cart">Cart</Link>
       </div>
     </nav>
   );

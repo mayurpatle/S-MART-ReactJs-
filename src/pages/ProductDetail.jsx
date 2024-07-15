@@ -1,13 +1,15 @@
 import React from 'react'
-import { useState  ,  useEffect } from 'react'
+import { useState  ,  useEffect , useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import styles from '../styles/ProductDetail.module.css';
+import { ShoppingCartContext } from "../ShoppingCartContext";
 
 const ProductDetail = () => {
 
     const {productId}  =  useParams() ; 
     const [product   , setProduct ]  = useState(null)  ;
     const [loading, setLoading] = useState(true);
+    const { addToCart } = useContext(ShoppingCartContext);
     
     useEffect(() => {
         console.log("Fetching product data...");
@@ -41,6 +43,7 @@ const ProductDetail = () => {
         <p>${product.price}</p>
         <br></br>
         <p>{product.info}</p>
+        <button onClick={() => addToCart(product)}>Add to Cart</button>
       </div>
     );
 }
