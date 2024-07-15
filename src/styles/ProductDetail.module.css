@@ -1,0 +1,14 @@
+/* ProductDetail.module.css */
+.productDetail {
+  margin: 50px;
+}
+
+.productDetail h1 {
+  margin-bottom: 20px;
+}
+
+.productDetail p {
+  margin-bottom: 10px;
+}
+
+

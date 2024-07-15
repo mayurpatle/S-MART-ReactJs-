@@ -1,8 +1,8 @@
 import React from 'react'
-
+import styles from  '../styles/Home.module.css'
 const Home = () => {
   return (
-    <div>
+    <div className= {styles.home}>
         <h1>Welcome to the Home Page</h1>
         { /* write   some  content   message  for  ecommerce  home page */ }
 

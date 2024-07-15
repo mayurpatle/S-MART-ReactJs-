@@ -1,0 +1,18 @@
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productItem {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productItem h2 {
+  margin-top: 0;
+}

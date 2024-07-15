@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState  ,  useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import '../styles/ProductDetail.css'
+import styles from '../styles/ProductDetail.module.css';
+
 const ProductDetail = () => {
 
     const {productId}  =  useParams() ; 
@@ -34,12 +35,14 @@ const ProductDetail = () => {
     
     
     return (
-    <div className='product-detail'>
+      <div className={styles.productDetail}>
         <h1>{product.name}</h1>
         <p>{product.description}</p>
         <p>${product.price}</p>
-    </div>
-  )
+        <br></br>
+        <p>{product.info}</p>
+      </div>
+    );
 }
 
 export default ProductDetail
