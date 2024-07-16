@@ -12,6 +12,7 @@ import OrderPlaced from "./pages/OrderPlaced";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import { AuthProvider } from "./AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
 
@@ -29,10 +30,21 @@ function App() {
           <Route path="/products/:productId" element={<ProductDetail />} />
           <Route
             path="/checkout"
-            element={<Checkout cartItems={cartItems} />}
+            element={
+              <ProtectedRoute>
+                <Checkout cartItems={cartItems} />
+              </ProtectedRoute>
+            }
           />
           <Route path="/cart" element={<ShoppingCart />} />
-          <Route path="/orderplaced" element={<OrderPlaced />} />{" "}
+          <Route
+            path="/orderplaced"
+            element={
+              <ProtectedRoute>
+                <OrderPlaced />
+              </ProtectedRoute>
+            }
+          />
           {/* Add route for OrderPlaced */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
