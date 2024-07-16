@@ -11,6 +11,7 @@ import Checkout from "./Checkout";
 import OrderPlaced from "./pages/OrderPlaced";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Orders from "./pages/Orders";
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
@@ -48,6 +49,14 @@ function App() {
           {/* Add route for OrderPlaced */}
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <Orders />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </ShoppingCartProvider>
     </AuthProvider>

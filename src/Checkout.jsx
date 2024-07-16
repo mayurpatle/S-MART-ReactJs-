@@ -1,30 +1,59 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles/Checkout.module.css";
+import { AuthContext } from "./AuthContext";
 import { ShoppingCartContext } from "./ShoppingCartContext";
-import styles from './styles/Checkout.module.css'
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const Checkout = () => {
+  const { currentUser } = useContext(AuthContext);
   const { cartItems, clearCart } = useContext(ShoppingCartContext);
   const navigate = useNavigate();
+
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically send the order data to a server
-    clearCart(); // Clear the cart after placing the order
-    navigate("/orderplaced"); // Navigate to the order placed page
+  useEffect(() => {
+    console.log("Cart Items: ", cartItems);
+    console.log("Total Price: ", totalPrice);
+  }, [cartItems, totalPrice]);
+
+  const handleSubmit = async (event) => {
+    navigate("/orderplaced");
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const order = {
+      userId: currentUser.uid,
+      items: cartItems,
+      total: totalPrice,
+      name: formData.get("name"),
+      email: formData.get("email"),
+      address: formData.get("address"),
+      orderId: new Date().getTime(),
+    };
+
+    try {
+      const db = getFirestore();
+      await addDoc(collection(db, "orders"), order);
+      navigate("/orderplaced");
+    } catch (error) {
+      console.error("Error placing order: ", error);
+    }
   };
 
   return (
     <div className={styles.checkout}>
       <h1>Checkout</h1>
       <div className={styles.cartItems}>
-        {cartItems.map((item, index) => (
-          <div key={index} className={styles.cartItem}>
-            <h2>{item.name}</h2>
-            <p>${item.price}</p>
-          </div>
-        ))}
+        {cartItems.length > 0 ? (
+          cartItems.map((item, index) => (
+            <div key={index} className={styles.cartItem}>
+              <h2>{item.name}</h2>
+              <p>${item.price}</p>
+            </div>
+          ))
+        ) : (
+          <p>No items in the cart</p>
+        )}
       </div>
       <div className={styles.total}>
         <h2>Total: ${totalPrice}</h2>

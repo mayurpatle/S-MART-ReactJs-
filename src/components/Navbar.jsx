@@ -13,16 +13,20 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
+      <div className={styles.logo}>S-MART</div>
       <div className={styles.leftContainer}>
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
+        {currentUser && <Link to="/orders">Orders</Link>}
       </div>
       <div className={styles.rightContainer}>
         {currentUser ? (
           <>
-            <span>{currentUser.email}</span>
-            <button onClick={handleLogout}>Logout</button>
+            <span className={styles.userEmail}>{currentUser.email}</span>
+            <button className={styles.logoutButton} onClick={handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
           <>
