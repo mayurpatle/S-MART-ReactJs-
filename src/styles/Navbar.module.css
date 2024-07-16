@@ -1,6 +1,6 @@
 /* Navbar.module.css */
 .navbar {
-  background-color: #e4a251;
+  background-color: #232F3E;
   height :3rem    ;  
 
   padding: 10px;
@@ -16,8 +16,9 @@
 }
 
 .navbar a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: none;
+  color: #ffffff;
+  border : solid 2px #ffffff
 }
 ul {
   list-style-type: none ;
