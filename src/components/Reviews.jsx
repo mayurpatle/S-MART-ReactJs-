@@ -27,34 +27,28 @@ const Reviews = ({ productId }) => {
 
   return (
     <div className={styles.reviews}>
-        <h3>Reviews</h3>
-        {reviews.map((review ,  index ) => (
-            <div key={index} className={styles.review}>
-                <p>{review.content}</p>
-                <small>
-                    {review.userName} - {new Date(review.date).toLocaleString()}
-                </small>
-
-            </div>
-        ))}
-        {currentUser && (
-            <form onSubmit={handleReviewSubmit} className={styles.reviewForm}>
-                <textarea
-                value={newReview}
-                onChange  = {(e) => setNewReview(e.target.value)}
-                placeholder="Write your review... "
-                required  
-                >
-
-                </textarea>
-                <button type="submit"> Submit Review </button>
-
-            </form>
-        )}
-        
+      <h3>Reviews</h3>
+      {reviews.map((review, index) => (
+        <div key={index} className={styles.review}>
+          <p>{review.content}</p>
+          <small>
+            {review.userName} - {new Date(review.date).toLocaleString()}
+          </small>
+        </div>
+      ))}
+      {currentUser && (
+        <form onSubmit={handleReviewSubmit} className={styles.reviewForm}>
+          <textarea
+            onChange={(e) => setNewReview(e.target.value)}
+            value={newReview}
+            placeholder="Write your review... "
+            required
+          ></textarea>
+          <button type="submit"> Submit Review </button>
+        </form>
+      )}
     </div>
-
-    );
+  );
 };
 
 export default Reviews;

@@ -18,7 +18,7 @@ import { OrderProvider } from "./OrderContext";
 import AdminDashboard from "./pages/AdminDashboard";
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
-
+  const [searchQuery, setSearchQuery] = React.useState("");
   const addToCart = (product) => {
     setCartItems([...cartItems, product]);
   };
@@ -27,10 +27,13 @@ function App() {
     <AuthProvider>
       <OrderProvider>
         <ShoppingCartProvider>
-          <Navbar />
+          <Navbar onSearch={setSearchQuery} />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
+            <Route
+              path="/products"
+              element={<Products searchQuery={searchQuery} />}
+            />
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route
               path="/checkout"
