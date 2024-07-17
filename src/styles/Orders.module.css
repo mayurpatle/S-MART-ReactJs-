@@ -1,41 +1,17 @@
-/* Orders.module.css */
-
-.ordersContainer {
+.orders {
   padding: 20px;
-  max-width: 800px;
-  margin: auto;
-  font-family: Arial, sans-serif;
 }
 
-.order {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 20px;
-  margin-bottom: 20px;
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.order h2 {
-  margin-top: 0;
+.orderItem {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.order ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.order li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.order li:last-child {
-  border-bottom: none;
-}
-
-.loading {
-  text-align: center;
-  font-size: 1.2em;
-  margin-top: 50px;
-}
 

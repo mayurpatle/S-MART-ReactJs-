@@ -1,62 +1,39 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../AuthContext";
-import {
-  getFirestore,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "firebase/firestore";
+import { useOrders } from "../OrderContext";
 import styles from "../styles/Orders.module.css";
 
 const Orders = () => {
   const { currentUser } = useContext(AuthContext);
-  const [orders, setOrders] = useState([]);
+  const { orders } = useOrders();
 
-  useEffect(() => {
-    const fetchOrders = async () => {
-      if (currentUser) {
-        const db = getFirestore();
-        const ordersRef = collection(db, "orders");
-        const q = query(ordersRef, where("userId", "==", currentUser.uid));
-        const querySnapshot = await getDocs(q);
-        const ordersList = querySnapshot.docs.map((doc) => doc.data());
-        setOrders(ordersList);
-      }
-    };
-
-    fetchOrders();
-  }, [currentUser]);
-
-  const  clear = () => {
-    setOrders([]);
+  if (!currentUser) {
+    return <p>Please log in to view your orders.</p>;
   }
 
-  
+  const userOrders = orders.filter((order) => order.userId === currentUser.uid);
 
   return (
-    <div className={styles.ordersContainer}>
-        <h1> your Orders </h1>
-        {orders.length ===  0 ? (
-            <p>no orders found </p>
-        ): (
-            orders.map((order, index ) => (
-                <div key={index} className={styles.order}>
-                    <h2> Order #{order.orderId}</h2>
-                    <p>
-                        {order.items.map(item => (
-                            <span key={item.name}> {item.name} - ${item.price} </span>
-                        ))}
-                    </p>
-                     <p>Total: ${order.total}</p>
-                    
-                </div>
-            ))
-        )
-        }
-
-        <button onClick={clear}> Clear all  Orders </button>
-
+    <div className={styles.orders}>
+      <h1>Your Orders</h1>
+      {userOrders.length === 0 ? (
+        <p>You have no orders.</p>
+      ) : (
+        <div className={styles.orderList}>
+          {userOrders.map((order) => (
+            <div key={order.orderId} className={styles.orderItem}>
+              <h3>Order ID: {order.orderId}</h3>
+              <p>Total: ${order.total}</p>
+              <h4>Items:</h4>
+              {order.items.map((item, index) => (
+                <p key={index}>
+                  {item.name} - ${item.price}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { OrderProvider } from "./OrderContext";
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
 
@@ -23,49 +24,51 @@ function App() {
 
   return (
     <AuthProvider>
-      <ShoppingCartProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:productId" element={<ProductDetail />} />
-          <Route
-            path="/checkout"
-            element={
-              <ProtectedRoute>
-                <Checkout cartItems={cartItems} />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <ShoppingCart />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/orderplaced"
-            element={
-              <ProtectedRoute>
-                <OrderPlaced />
-              </ProtectedRoute>
-            }
-          />
-          {/* Add route for OrderPlaced */}
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/orders"
-            element={
-              <ProtectedRoute>
-                <Orders />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </ShoppingCartProvider>
+      <OrderProvider>
+        <ShoppingCartProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <Checkout cartItems={cartItems} />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <ShoppingCart />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orderplaced"
+              element={
+                <ProtectedRoute>
+                  <OrderPlaced />
+                </ProtectedRoute>
+              }
+            />
+            {/* Add route for OrderPlaced */}
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/orders"
+              element={
+                <ProtectedRoute>
+                  <Orders />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </ShoppingCartProvider>
+      </OrderProvider>
     </AuthProvider>
   );
 }

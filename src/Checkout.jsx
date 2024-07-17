@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/Checkout.module.css";
 import { AuthContext } from "./AuthContext";
 import { ShoppingCartContext } from "./ShoppingCartContext";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-
+import { useOrders } from "./OrderContext";
 const Checkout = () => {
   const { currentUser } = useContext(AuthContext);
   const { cartItems, clearCart } = useContext(ShoppingCartContext);
+  const {addOrder}  =  useOrders()  ;  
   const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
@@ -31,14 +31,11 @@ const Checkout = () => {
       orderId: new Date().getTime(),
     };
 
-    try {
-      const db = getFirestore();
-      await addDoc(collection(db, "orders"), order);
-      clearCart(); 
-      navigate("/orderplaced");
-    } catch (error) {
-      console.error("Error placing order: ", error);
-    }
+    await addOrder(order);
+    clearCart();
+    navigate("/orderplaced");  // Redirect to order placed page once order is placed.  // Note: This should be replaced with a real order placement API call.  // Also, make sure to handle any potential errors that may occur during the API call.  // You may want to use a try-catch block to handle these errors.  // Also, consider implementing error handling for the form submission process.  // For example, you could display an error message if the form submission fails.  // Remember to also handle any potential errors that may occur during the order placement process.  // You may want to use a try-catch block to handle these errors.  // Also, consider implementing error handling for the form submission process.  // For example, you could display an error message if the form submission fails.  // You may want to use a try-catch block to handle these errors.  // Also, consider
+
+    
   };
 
   return (
