@@ -1,0 +1,31 @@
+/* src/styles/Reviews.module.css */
+.reviews {
+  margin-top: 20px;
+}
+
+.review {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewForm textarea {
+  resize: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.reviewForm button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

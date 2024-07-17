@@ -3,7 +3,7 @@ import { useState  ,  useEffect , useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import styles from '../styles/ProductDetail.module.css';
 import { ShoppingCartContext } from "../ShoppingCartContext";
-
+import Reviews from '../components/Reviews';
 const ProductDetail = () => {
 
     const {productId}  =  useParams() ; 
@@ -44,6 +44,7 @@ const ProductDetail = () => {
         <br></br>
         <p>{product.info}</p>
         <button onClick={() => addToCart(product)}>Add to Cart</button>
+        <Reviews productId={productId} />
       </div>
     );
 }
