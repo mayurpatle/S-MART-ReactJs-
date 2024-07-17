@@ -11,6 +11,8 @@ const Navbar = () => {
     await auth.signOut();
   };
 
+  const isAdmin = currentUser && currentUser.email === "mayurpatle108@gmail.com"; // Replace with your admin email
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
@@ -21,6 +23,7 @@ const Navbar = () => {
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
         {currentUser && <Link to="/orders">Orders</Link>}
+        {isAdmin && <Link to="/admin">Admin Dashboard</Link>} {/* Admin link */}
       </div>
       <div className={styles.rightContainer}>
         {currentUser ? (

@@ -15,6 +15,7 @@ import Orders from "./pages/Orders";
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { OrderProvider } from "./OrderContext";
+import AdminDashboard from "./pages/AdminDashboard";
 function App() {
   const [cartItems, setCartItems] = React.useState([]);
 
@@ -66,6 +67,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/admin" element={<AdminDashboard />} />{" "}
+            {/* Add route for AdminDashboard */}
           </Routes>
         </ShoppingCartProvider>
       </OrderProvider>

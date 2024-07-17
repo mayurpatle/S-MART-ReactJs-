@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "description": "Description for product 1",
+    "price": 19.99,
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam scelerisque lacus, in dictum ipsum nunc et risus. Aenean imperdiet placerat arcu a cursus."
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "description": "Description for product 2",
+    "price": 29.99,
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "description": "Description for product 3",
+    "price": 39.99  , 
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "description": "Description for product 4",
+    "price": 49.99,
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  {
+    "id": 5,
+    "name": "Product 5",
+    "description": "Description for product 5",
+    "price": 59.99, 
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+
+  },
+  {
+    "id": 6,
+    "name": "Product 6",
+    "description": "Description for product 6",
+    "price": 69.99,
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }
+]
