@@ -34,6 +34,7 @@ const Checkout = () => {
     try {
       const db = getFirestore();
       await addDoc(collection(db, "orders"), order);
+      clearCart(); 
       navigate("/orderplaced");
     } catch (error) {
       console.error("Error placing order: ", error);

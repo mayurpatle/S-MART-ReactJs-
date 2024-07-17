@@ -3,9 +3,13 @@ import React, { useContext } from "react";
 import { ShoppingCartContext } from "../ShoppingCartContext";
 import styles from "../styles/ShoppingCart.module.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthContext";
 const ShoppingCart = () => {
   const { cartItems, removeFromCart, clearCart } =
     useContext(ShoppingCartContext);
+  const {currentUser }  = useContext(AuthContext)  ; 
+
+  
 
   return (
     <div className={styles.shoppingCart}>
