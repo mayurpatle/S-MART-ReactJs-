@@ -9,6 +9,8 @@ export const OrderProvider = ({ children }) => {
     setOrders((prevOrders) => [...prevOrders, order]);
   };
 
+  
+
   return (
     <OrderContext.Provider value={{ orders, addOrder }}>
       {children}

@@ -24,7 +24,7 @@ const SignUp = () => {
     <div className={styles.auth}>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className={styles.emailContainer}>
           <label>Email</label>
           <input
             type="email"
@@ -33,7 +33,7 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
+        <div className={styles.passwordContainer}>
           <label>Password</label>
           <input
             type="password"
