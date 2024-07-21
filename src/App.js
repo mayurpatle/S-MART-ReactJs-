@@ -16,20 +16,25 @@ import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { OrderProvider } from "./OrderContext";
 import AdminDashboard from "./pages/AdminDashboard";
+import ErrorBoundary  from "./ErrorBoundary";
 function App() {
-  const [cartItems, setCartItems] = React.useState([]);
+  
   const [searchQuery, setSearchQuery] = React.useState("");
-  const addToCart = (product) => {
-    setCartItems([...cartItems, product]);
-  };
-
+  
   return (
     <AuthProvider>
       <OrderProvider>
         <ShoppingCartProvider>
           <Navbar onSearch={setSearchQuery} />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <ErrorBoundary>
+                  <Home />
+                </ErrorBoundary>
+              }
+            />
             <Route
               path="/products"
               element={<Products searchQuery={searchQuery} />}
@@ -39,7 +44,7 @@ function App() {
               path="/checkout"
               element={
                 <ProtectedRoute>
-                  <Checkout cartItems={cartItems} />
+                  <Checkout />
                 </ProtectedRoute>
               }
             />

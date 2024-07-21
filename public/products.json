@@ -4,6 +4,7 @@
     "name": "Product 1",
     "description": "Description for product 1",
     "price": 19.99,
+    "category"  : "chair"  , 
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam scelerisque lacus, in dictum ipsum nunc et risus. Aenean imperdiet placerat arcu a cursus."
   },
   {
@@ -11,14 +12,15 @@
     "name": "Product 2",
     "description": "Description for product 2",
     "price": 29.99,
+    "category": "chair",
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
-
   },
   {
     "id": 3,
     "name": "Product 3",
     "description": "Description for product 3",
-    "price": 39.99  , 
+    "price": 39.99,
+    "category": "chair",
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
   },
   {
@@ -26,21 +28,125 @@
     "name": "Product 4",
     "description": "Description for product 4",
     "price": 49.99,
+    "category": "chair",
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
   },
   {
     "id": 5,
     "name": "Product 5",
     "description": "Description for product 5",
-    "price": 59.99, 
+    "price": 59.99,
+    "category": "chair",
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
-
   },
   {
     "id": 6,
     "name": "Product 6",
     "description": "Description for product 6",
     "price": 69.99,
+    "category": "chair",
+
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },  
+  {
+    "id": 7,
+    "name": "Product 7",
+    "description": "Description for product 7",
+    "price": 79.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  
+  {
+    "id": 8,
+    "name": "Product 8",
+    "description": "Description for product 8",
+    "price": 89.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  
+  {
+    "id": 9,
+    "name": "Product 9",
+    "description": "Description for product 9",
+    "price": 99.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  
+  {
+    "id": 10,
+    "name": "Product 10",
+    "description": "Description for product 10",
+    "price": 109.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  {
+    "id": 11,
+    "name": "Product 11",
+    "description": "Description for product 11",
+    "price": 119.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },
+  {
+    "id": 12,
+    "name": "Product 12",
+    "description": "Description for product 12",
+    "price": 129.99,
+    "category": "sofa",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }, 
+  {
+    "id": 13,
+    "name": "Product 13",
+    "description": "Description for product 13",
+    "price": 139.99,
+    "category": "bed",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  },  
+  {
+    "id": 14,
+    "name": "Product 14",
+    "description": "Description for product 14",
+    "price": 149.99,
+    "category": "bed",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }, 
+  {
+    "id": 15,
+    "name": "Product 15",
+    "description": "Description for product 15",
+    "price": 159.99,
+    "category": "bed",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }, 
+  {
+    "id": 16,
+    "name": "Product 16",
+    "description": "Description for product 16",
+    "price": 169.99,
+    "category": "bed",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }, 
+  {
+    "id": 17,
+    "name": "Product 17",
+    "description": "Description for product 17",
+    "price": 179.99,
+    "category": "bed",
+    "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
+  }, 
+  {
+    "id": 18,
+    "name": "Product 18",
+    "description": "Description for product 18",
+    "price": 189.99,
+    "category": "bed",
     "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis porta nisi id semper. Phasellus hendrerit pharetra porta. Ut finibus sagittis consequat. Vivamus ullamcorper libero fringilla, aliquam purus nec, viverra ligula. Sed blandit metus vel vehicula vehicula. Nullam sit amet semper felis. Mauris sodales, risus ac ullamcorper consequat, tellus quam"
   }
 ]
+
+

@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "price": "Rs 78,000",
+        "discounted_price" : "Rs 40,000"   , 
+        "img" :  "https://images.pexels.com/photos/3757055/pexels-photo-3757055.jpeg?auto=compress&cs=tinysrgb&w=600"  
+
+
+        
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "price": "Rs 55,000",
+        "discounted_price" : "Rs 30,000"   ,
+        "img" :  "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+    },  
+    {
+    
+        "id": 3,
+        "name": "Product 3",
+        "price": "Rs 90,000",
+        "discounted_price" : "Rs 50,000"   ,
+        "img" :  "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+    }
+]
