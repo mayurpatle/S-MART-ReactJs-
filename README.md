@@ -1,3 +1,7 @@
-Step 10.2 
+Step   14 :   
 
-Added the  Order Context  and  in the  order   page  when the  users log  in only  then the  his  ordeers arebeing  displayed  
+here  i have added the  pagination , filteroption  ,  sortoption tothe products page  all the  logic is in the  product.jsx  file  ..but the thing  is the searh option is not working  .. (!important)  
+
+
+
+additional : added the  carousel  in homepage 
