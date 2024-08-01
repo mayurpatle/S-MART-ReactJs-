@@ -1,3 +1,9 @@
-Step 10.2 
+## STEP 15 
 
-Added the  Order Context  and  in the  order   page  when the  users log  in only  then the  his  ordeers arebeing  displayed  
+# Addition of  Wishlist Component  
+
+here i have  added the wishlist  compoent  using  the  global  state beuse context  
+
+# Addition of  Avatar  Dropdoen  menu in navbar 
+Avatar Drop  down  menu  is  also  added  to navbar by  useState ( true  || dalse )  
+
