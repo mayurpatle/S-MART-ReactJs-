@@ -17,6 +17,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { OrderProvider } from "./OrderContext";
 import AdminDashboard from "./pages/AdminDashboard";
 import ErrorBoundary  from "./ErrorBoundary";
+import Wishlist from "./components/Wishlist";
+import { WishlistProvider } from "./WishlistContext";
 function App() {
   
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -25,59 +27,62 @@ function App() {
     <AuthProvider>
       <OrderProvider>
         <ShoppingCartProvider>
-          <Navbar onSearch={setSearchQuery} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <ErrorBoundary>
-                  <Home />
-                </ErrorBoundary>
-              }
-            />
-            <Route
-              path="/products"
-              element={<Products searchQuery={searchQuery} />}
-            />
-            <Route path="/products/:productId" element={<ProductDetail />} />
-            <Route
-              path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <ProtectedRoute>
-                  <ShoppingCart />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/orderplaced"
-              element={
-                <ProtectedRoute>
-                  <OrderPlaced />
-                </ProtectedRoute>
-              }
-            />
-            {/* Add route for OrderPlaced */}
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/orders"
-              element={
-                <ProtectedRoute>
-                  <Orders />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/admin" element={<AdminDashboard />} />{" "}
-            {/* Add route for AdminDashboard */}
-          </Routes>
+          <WishlistProvider>
+            <Navbar onSearch={setSearchQuery} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <ErrorBoundary>
+                    <Home />
+                  </ErrorBoundary>
+                }
+              />
+              <Route
+                path="/products"
+                element={<Products searchQuery={searchQuery} />}
+              />
+              <Route path="/products/:productId" element={<ProductDetail />} />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <ShoppingCart />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route
+                path="/orderplaced"
+                element={
+                  <ProtectedRoute>
+                    <OrderPlaced />
+                  </ProtectedRoute>
+                }
+              />
+              {/* Add route for OrderPlaced */}
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/orders"
+                element={
+                  <ProtectedRoute>
+                    <Orders />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/admin" element={<AdminDashboard />} />{" "}
+              {/* Add route for AdminDashboard */}
+            </Routes>
+          </WishlistProvider>
         </ShoppingCartProvider>
       </OrderProvider>
     </AuthProvider>

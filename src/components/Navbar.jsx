@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 import { auth } from "../firebase";
 import styles from "../styles/Navbar.module.css";
-
+import { WishlistContext } from "../WishlistContext";
+import AvatarDropdown from "./AvatarDropdown";
 const Navbar = ({ onSearch }) => {
   const { currentUser } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
+  const {wishlistItems }  = useContext(WishlistContext) ; 
 
   const handleLogout = async () => {
     await auth.signOut();
@@ -29,6 +31,8 @@ const Navbar = ({ onSearch }) => {
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
         <Link to="/cart">Cart</Link>
+        <Link to="/wishlist">Wishlist ({wishlistItems.length})</Link>{" "}
+        {/* Wishlist link */}
         {currentUser && <Link to="/orders">Orders</Link>}
         {isAdmin && <Link to="/admin">Admin Dashboard</Link>} {/* Admin link */}
       </div>
@@ -41,12 +45,7 @@ const Navbar = ({ onSearch }) => {
           className={styles.searchInput}
         />
         {currentUser ? (
-          <>
-            <span className={styles.userEmail}>{currentUser.email}</span>
-            <button className={styles.logoutButton} onClick={handleLogout}>
-              Logout
-            </button>
-          </>
+          <AvatarDropdown /> // Use the AvatarDropdown component
         ) : (
           <>
             <Link to="/signup">Sign Up</Link>

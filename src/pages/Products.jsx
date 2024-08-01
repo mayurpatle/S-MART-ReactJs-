@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import styles from "../styles/Products.module.css";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../ShoppingCartContext";
-
+import { WishlistContext } from "../WishlistContext";
 const Products = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -52,7 +52,7 @@ const Products = ({ searchQuery }) => {
   }, [searchQuery, products ,  sortOption  , filterOption]);
 
   const { addToCart } = useContext(ShoppingCartContext);
-
+  const {addToWishlist}  = useContext(WishlistContext)  ; // added 
   // Pagination  logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -84,6 +84,7 @@ const Products = ({ searchQuery }) => {
     <>
       <div>
         <h1> Products </h1>
+        {/* for  sort and  filter */ }
         <div className={styles.filters}>
           <select
             onChange={(e) => setSortOption(e.target.value)}
@@ -104,6 +105,9 @@ const Products = ({ searchQuery }) => {
             <option value="chair">chair</option>
           </select>
         </div>
+
+
+        {/* for product g display    */}
         <div className={styles.productList}>
           {currentProducts.map((product) => (
             <div key={product.id} className={styles.productItem}>
@@ -113,10 +117,15 @@ const Products = ({ searchQuery }) => {
               <p>Category :  {product.category}</p>
               <Link to={`/products/${product.id}`}> View Details </Link>
               <button onClick={() => addToCart(product)}>Add to Cart</button>
+              <button onClick={() => addToWishlist(product)} >
+                Add to  Wishlist 
+              </button> {/* Wishlist button  */}
             </div>
           ))}
         </div>
       </div>
+
+      {/* for pagination  */}
       <div className={styles.pagination}>
         <button onClick={prevButtonclick}> prev </button>
         {pageNumbers.map((number) => (
