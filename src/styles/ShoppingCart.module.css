@@ -29,3 +29,7 @@
 .clearCart:hover {
   background-color: #555;
 }
+
+* {
+  font-family: "Manrope", sans-serif;
+}

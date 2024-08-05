@@ -1,6 +1,7 @@
 import React ,  {useState ,  useEffect } from 'react'
 import styles from  '../styles/Home.module.css'
 import CustomCarousel  from '../components/CustomCarousel';
+import Whatsapp from  '../components/Whatsapp'
 const Home = () => {
   const  [images ,  setImages ]  = useState([])   ; 
 
@@ -16,13 +17,26 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.home}>
-        <h1>Welcome to the Home Page</h1>
+    <div className={styles.hero} >
+
+      <div className={styles.herocontent}>
+            <h1>Art of Living Spaces</h1>
+            <p >Transforming your home into a masterpiece with exquisite furniture.</p>
+            <a href="#shop-now" className={styles.ctabutton}>Shop Now</a>
+      </div> 
+      
+
+    </div>
+    <div>
+      <div className={styles.discount}>
+        <h1>Discounts on the Way! </h1>
         {/* write   some  content   message  for  ecommerce  home page */}
 
-        <p>This is a basic e-commerce home page.</p>
+        
       </div>
       <CustomCarousel  images={images} />
+      <Whatsapp />
+      </div>
     </>
   );
 }

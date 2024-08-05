@@ -5,6 +5,7 @@ const Wishlist = () => {
     const  {wishlistItems  ,  removeFromWishlist }  = useContext(WishlistContext) ; 
 
   return (
+    
     <div className={styles.wishlist}>
       <h1> Wishlist </h1>
       <div className={styles.wishlistItems}>
@@ -23,6 +24,7 @@ const Wishlist = () => {
         )}
       </div>
     </div>
+    
   );
 }
 

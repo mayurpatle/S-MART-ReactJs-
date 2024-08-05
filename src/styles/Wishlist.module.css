@@ -48,3 +48,7 @@
 .wishlistItem button:hover {
   background-color: #ff5252;
 }
+
+* {
+  font-family: "Manrope", sans-serif;
+}

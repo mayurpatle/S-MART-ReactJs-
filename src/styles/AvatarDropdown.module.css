@@ -41,3 +41,7 @@
 .logoutButton:hover {
   background-color: #e5e5e5;
 }
+
+* {
+    font-family: "Manrope", sans-serif;
+}

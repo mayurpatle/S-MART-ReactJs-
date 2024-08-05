@@ -1,8 +1,8 @@
 /* Navbar.module.css */
 .navbar {
-  background-color: #232F3E;
+  background-color: #000000;
   height :3rem    ;  
-
+  font-family: "Manrope", sans-serif;
   padding: 10px;
   display: flex;
   flex-direction:row ;  
@@ -10,7 +10,7 @@
 }
 
 .navbar a {
-  color: white;
+  color: #80489C;
   text-decoration: none;
   padding: 8px 16px;
 }

@@ -1,5 +1,96 @@
-.home {
+.discount {
   text-align: center;
   margin-top: 50px;
+  height : 8rem  ; 
+  
+
+}
+
+.discount  h1 {
+  font-size: 50px;
+  font-weight:10; 
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+}
+
+.hero   {
+  height :  calc(100vh   -  3rem   ) ; 
+  width:100% ; 
+  border :  solid  1px rgb(151, 144, 144)    ; 
+  border-top: none ;  
+
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url('../../public/hero-image-3.jpeg');
+  background-size:cover ;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  overflow: hidden;
+  z-index: -1  ;
+  display: flex ; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+   
+}
+
+.wlogo {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  z-index: 1000  ;  
+  
+}
+
+
+.herocontent { 
+  display : flex  ;  
+  color :  #ffffff  ; 
+  flex-direction : column  ; 
+  gap:0 ;  
+  width:800px ; 
+  margin-top:75% auto ;  
+
+  
+  align-items: center;
+  font-size: x-large;
+
+
+}
+
+.herocontent p {
+  text-align: center;
+}
+.herocontent h1 {
+  font-size: 3em;
+  font-weight: 100;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.herocontent p {
+  font-size: 1em;
+  font-weight: 50;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.ctabutton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ctabutton:hover {
+  background-color: black;
+  color: white;
 }
 

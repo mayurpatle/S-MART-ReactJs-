@@ -29,3 +29,7 @@
   border: none;
   cursor: pointer;
 }
+
+* {
+  font-family: "Manrope", sans-serif;
+}

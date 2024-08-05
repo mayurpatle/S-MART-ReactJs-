@@ -19,6 +19,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ErrorBoundary  from "./ErrorBoundary";
 import Wishlist from "./components/Wishlist";
 import { WishlistProvider } from "./WishlistContext";
+
 function App() {
   
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -28,8 +29,10 @@ function App() {
       <OrderProvider>
         <ShoppingCartProvider>
           <WishlistProvider>
+            
             <Navbar onSearch={setSearchQuery} />
             <Routes>
+              
               <Route
                 path="/"
                 element={
