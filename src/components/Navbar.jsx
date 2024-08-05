@@ -1,18 +1,17 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
-import { auth } from "../firebase";
 import styles from "../styles/Navbar.module.css";
 import { WishlistContext } from "../WishlistContext";
 import AvatarDropdown from "./AvatarDropdown";
+import { ShoppingCartContext } from "../ShoppingCartContext";
 const Navbar = ({ onSearch }) => {
   const { currentUser } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
-  const {wishlistItems }  = useContext(WishlistContext) ; 
+   
+  const {uniqueWishlistItems }  = useContext(WishlistContext)  ; 
+  const {uniqueCartItems }  = useContext(ShoppingCartContext)   ;  
 
-  const handleLogout = async () => {
-    await auth.signOut();
-  };
 
   const isAdmin =
     currentUser && currentUser.email === "mayurpatle108@gmail.com"; // Replace with your admin email
@@ -30,8 +29,15 @@ const Navbar = ({ onSearch }) => {
       <div className={styles.leftContainer}>
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
-        <Link to="/cart">Cart</Link>
-        <Link to="/wishlist">Wishlist ({wishlistItems.length})</Link>{" "}
+        <Link to="/cart">Cart {
+          (currentUser ? ((uniqueCartItems.length)) :  "")
+        }</Link>
+        <Link to="/wishlist">Wishlist {
+          (currentUser ? ((uniqueWishlistItems.length)) :  "")
+        }
+        
+        
+        </Link>{" "}
         {/* Wishlist link */}
         {currentUser && <Link to="/orders">Orders</Link>}
         {isAdmin && <Link to="/admin">Admin Dashboard</Link>} {/* Admin link */}

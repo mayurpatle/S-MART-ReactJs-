@@ -2,6 +2,7 @@ import React ,  {useState ,  useEffect } from 'react'
 import styles from  '../styles/Home.module.css'
 import CustomCarousel  from '../components/CustomCarousel';
 import Whatsapp from  '../components/Whatsapp'
+import { Link } from 'react-router-dom';
 const Home = () => {
   const  [images ,  setImages ]  = useState([])   ; 
 
@@ -22,12 +23,12 @@ const Home = () => {
       <div className={styles.herocontent}>
             <h1>Art of Living Spaces</h1>
             <p >Transforming your home into a masterpiece with exquisite furniture.</p>
-            <a href="#shop-now" className={styles.ctabutton}>Shop Now</a>
+            <Link to="/products" className={styles.ctabutton} >Shop Now  </Link>
       </div> 
       
 
     </div>
-    <div>
+    
       <div className={styles.discount}>
         <h1>Discounts on the Way! </h1>
         {/* write   some  content   message  for  ecommerce  home page */}
@@ -36,7 +37,7 @@ const Home = () => {
       </div>
       <CustomCarousel  images={images} />
       <Whatsapp />
-      </div>
+      
     </>
   );
 }

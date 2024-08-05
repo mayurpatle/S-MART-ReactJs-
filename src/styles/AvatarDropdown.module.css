@@ -19,7 +19,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   z-index: 1;
-  width: 150px; /* Adjust as needed */
+  width: 180px; /* Adjust as needed */
+  color :  black   ;  
+
+
+  overflow: hidden;
+}
+
+Link {
+  color: black   ;
+
 }
 
 .email {

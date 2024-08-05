@@ -5,29 +5,37 @@ import styles from "../styles/ShoppingCart.module.css";
 import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
-  const { cartItems, removeFromCart, clearCart } =
-    useContext(ShoppingCartContext);
+  const { cartItems, removeFromCart, clearCart } = useContext(ShoppingCartContext);
 
-
-  
+  // Process cartItems to get unique products with quantities
+  const uniqueCartItems = cartItems.reduce((acc, item) => {
+    const foundItem = acc.find(accItem => accItem.id === item.id);
+    if (foundItem) {
+      foundItem.quantity += 1;
+    } else {
+      acc.push({ ...item, quantity: 1 });
+    }
+    return acc;
+  }, []);
 
   return (
     <div className={styles.shoppingCart}>
       <h1>Shopping Cart</h1>
       <div className={styles.cartItems}>
-        {cartItems.length === 0 ? (
+        {uniqueCartItems.length === 0 ? (
           <p>No items in the cart</p>
         ) : (
-          cartItems.map((item, index) => (
-            <div key={index} className={styles.cartItem}>
+          uniqueCartItems.map((item) => (
+            <div key={item.id} className={styles.cartItem}>
               <h2>{item.name}</h2>
               <p>${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
               <button onClick={() => removeFromCart(item.id)}>Remove</button>
             </div>
           ))
         )}
       </div>
-      {cartItems.length > 0 && (
+      {uniqueCartItems.length > 0 && (
         <>
           <button onClick={clearCart} className={styles.clearCart}>
             Clear Cart
@@ -44,3 +52,4 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+

@@ -6,7 +6,7 @@ import { ShoppingCartContext } from "./ShoppingCartContext";
 import { useOrders } from "./OrderContext";
 const Checkout = () => {
   const { currentUser } = useContext(AuthContext);
-  const { cartItems, clearCart } = useContext(ShoppingCartContext);
+  const { cartItems, clearCart , removeFromCart } = useContext(ShoppingCartContext);
   const {addOrder}  =  useOrders()  ;  
   const navigate = useNavigate();
 
@@ -38,19 +38,31 @@ const Checkout = () => {
     
   };
 
+  const uniqueCartItems = cartItems.reduce((acc, item) => {
+    const foundItem = acc.find(accItem => accItem.id === item.id);
+    if (foundItem) {
+      foundItem.quantity += 1;
+    } else {
+      acc.push({ ...item, quantity: 1 });
+    }
+    return acc;
+  }, []);
+
   return (
     <div className={styles.checkout}>
       <h1>Checkout</h1>
       <div className={styles.cartItems}>
-        {cartItems.length > 0 ? (
-          cartItems.map((item, index) => (
-            <div key={index} className={styles.cartItem}>
+        {uniqueCartItems.length === 0 ? (
+          <p>No items in the cart</p>
+        ) : (
+          uniqueCartItems.map((item) => (
+            <div key={item.id} className={styles.cartItem}>
               <h2>{item.name}</h2>
               <p>${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+              <button onClick={() => removeFromCart(item.id)}>Remove</button>
             </div>
           ))
-        ) : (
-          <p>No items in the cart</p>
         )}
       </div>
       <div className={styles.total}>
