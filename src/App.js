@@ -19,7 +19,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ErrorBoundary  from "./ErrorBoundary";
 import Wishlist from "./components/Wishlist";
 import { WishlistProvider } from "./WishlistContext";
-
+import UserProfile from "./components/UserProfile";
 function App() {
   
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -84,6 +84,15 @@ function App() {
               />
               <Route path="/admin" element={<AdminDashboard />} />{" "}
               {/* Add route for AdminDashboard */}
+
+              <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              }
+              /> {/* Add route for UserProfile */}
             </Routes>
           </WishlistProvider>
         </ShoppingCartProvider>

@@ -5,6 +5,7 @@ import styles from "../styles/Navbar.module.css";
 import { WishlistContext } from "../WishlistContext";
 import AvatarDropdown from "./AvatarDropdown";
 import { ShoppingCartContext } from "../ShoppingCartContext";
+
 const Navbar = ({ onSearch }) => {
   const { currentUser } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");

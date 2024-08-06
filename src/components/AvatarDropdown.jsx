@@ -32,6 +32,7 @@ const AvatarDropdown = () => {
         
         
           </Link>{" "}</p>
+          <Link to="/profile">My Profile</Link>
           <button onClick={handleLogout} className={styles.logoutButton}>
             Logout
           </button>

@@ -1,0 +1,35 @@
+.userProfile {
+  padding: 20px;
+  margin: auto auto  ;
+  align-items: center;
+  display: flex ;  
+  flex-direction: column;
+}
+
+.userDetails, .orderHistory, .wishlist {
+  margin-bottom: 20px;
+  margin: auto auto  ;
+  width:75% ; 
+  
+}
+
+h1, h2 {
+  
+}
+
+p {
+  
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
