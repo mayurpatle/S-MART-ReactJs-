@@ -3,6 +3,7 @@ import styles from "../styles/Products.module.css";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../ShoppingCartContext";
 import { WishlistContext } from "../WishlistContext";
+import AnimatedSection from "../components/AnimatedSection";
 const Products = ({ searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -106,7 +107,7 @@ const Products = ({ searchQuery }) => {
           </select>
         </div>
 
-
+        <AnimatedSection>
         {/* for product g display    */}
         <div className={styles.productList}>
           {currentProducts.map((product) => (
@@ -123,6 +124,7 @@ const Products = ({ searchQuery }) => {
             </div>
           ))}
         </div>
+        </AnimatedSection>
       </div>
 
       {/* for pagination  */}

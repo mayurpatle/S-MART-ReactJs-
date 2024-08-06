@@ -1,10 +1,15 @@
 import React ,  {useState ,  useEffect } from 'react'
+import { motion, useAnimation, useScroll  } from 'framer-motion';
 import styles from  '../styles/Home.module.css'
 import CustomCarousel  from '../components/CustomCarousel';
 import Whatsapp from  '../components/Whatsapp'
 import { Link } from 'react-router-dom';
+import AnimatedSection from '../components/AnimatedSection';
 const Home = () => {
   const  [images ,  setImages ]  = useState([])   ; 
+  const controls = useAnimation();
+  const { scrollY } = useScroll();
+
 
   useEffect(() => {
     fetch('/discount.json')
@@ -14,7 +19,19 @@ const Home = () => {
         setImages(img); // set images  state with fetched images
       })
       .catch((error) => console.error("Error fetching data:", error)); // Handle errors
-  }  ,  []   )
+  }  ,  []   )  ;  
+
+  useEffect(() => {
+    return scrollY.onChange((latest) => {
+      if (latest > 100) {
+        controls.start({ backgroundColor: 'linear-gradient(180deg, #000, #333)' });
+      } else {
+        controls.start({ backgroundColor: 'linear-gradient(180deg, #fff, #ddd)' });
+      }
+    });
+  }, [scrollY, controls]);
+
+  
 
   return (
     <>
@@ -35,7 +52,9 @@ const Home = () => {
 
         
       </div>
+      <AnimatedSection>
       <CustomCarousel  images={images} />
+      </AnimatedSection>
       <Whatsapp />
       
     </>

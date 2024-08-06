@@ -1,0 +1,7 @@
+/* GlowText.module.css */
+.glowText {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}

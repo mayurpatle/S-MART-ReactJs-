@@ -25,7 +25,7 @@ const Navbar = ({ onSearch }) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Link to="/">S-MART</Link>
+        <Link to="/"><img src="../../public/smart_logo.png" alt="company logo"></img></Link>
       </div>
       <div className={styles.leftContainer}>
         <Link to="/">Home</Link>
