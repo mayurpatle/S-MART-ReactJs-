@@ -22,11 +22,11 @@ const CustomCarousel = ({ images }) => {
         {/* first     */}
         <div className={styles.innerContainer}>
           <div>
-            <button onClick={prevSlide} className={styles.btn} >
-              <span class="material-symbols-outlined" >
+            
+              <span class="material-symbols-outlined" onClick={prevSlide}>
                 arrow_back_ios
               </span>
-            </button>
+            
           </div>
 
           {/* Central   */}
@@ -60,11 +60,11 @@ const CustomCarousel = ({ images }) => {
 
           {/* Last  */}
           <div>
-            <button onClick={nextSlide} className={styles.btn}>
-              <span class="material-symbols-outlined" >
+            
+              <span class="material-symbols-outlined" onClick={nextSlide}>
                 arrow_forward_ios
               </span>
-            </button>
+            
           </div>
         </div>
       </div>

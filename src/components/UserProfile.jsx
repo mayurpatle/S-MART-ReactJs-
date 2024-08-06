@@ -3,7 +3,7 @@ import { AuthContext } from '../AuthContext';
 import { useOrders} from  '../OrderContext'  ; 
 import { WishlistContext } from '../WishlistContext';
 import styles from "../styles/UserProfile.module.css"; 
-
+import AddressManagement from './AddressManagement';
 
 const  UserProfile = () => {
     const {currentUser}  =   useContext(AuthContext)  ;  
@@ -69,7 +69,7 @@ const  UserProfile = () => {
           </ul>
         )}
       </div>
-
+            <AddressManagement /> {/* Add AddressManagement component */}
         </div>
     );  
 

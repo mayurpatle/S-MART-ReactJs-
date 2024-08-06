@@ -1,16 +1,33 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/Checkout.module.css";
 import { AuthContext } from "./AuthContext";
 import { ShoppingCartContext } from "./ShoppingCartContext";
 import { useOrders } from "./OrderContext";
+
 const Checkout = () => {
   const { currentUser } = useContext(AuthContext);
-  const { cartItems, clearCart , removeFromCart } = useContext(ShoppingCartContext);
-  const {addOrder}  =  useOrders()  ;  
+  const { cartItems, clearCart, removeFromCart } = useContext(ShoppingCartContext);
+  const { addOrder } = useOrders();
   const navigate = useNavigate();
 
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState("");
+  const [newAddress, setNewAddress] = useState("");
+
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
+
+  useEffect(() => {
+    if (currentUser) {
+      const savedAddresses = JSON.parse(localStorage.getItem(`addresses_${currentUser.uid}`)) || [];
+      if (Array.isArray(savedAddresses)) {
+        setAddresses(savedAddresses);
+        if (savedAddresses.length > 0) {
+          setSelectedAddress(savedAddresses[0]);
+        }
+      }
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     console.log("Cart Items: ", cartItems);
@@ -18,24 +35,30 @@ const Checkout = () => {
   }, [cartItems, totalPrice]);
 
   const handleSubmit = async (event) => {
-    navigate("/orderplaced");
     event.preventDefault();
     const formData = new FormData(event.target);
+
+    // Save new address to localStorage if it's a new one
+    if (newAddress && !addresses.includes(newAddress)) {
+      const updatedAddresses = [...addresses, newAddress];
+      setAddresses(updatedAddresses);
+      localStorage.setItem(`addresses_${currentUser.uid}`, JSON.stringify(updatedAddresses));
+    }
+
+
     const order = {
       userId: currentUser.uid,
       items: cartItems,
       total: totalPrice,
       name: formData.get("name"),
       email: formData.get("email"),
-      address: formData.get("address"),
+      address: selectedAddress || formData.get("address") || newAddress,
       orderId: new Date().getTime(),
     };
 
     await addOrder(order);
     clearCart();
-    navigate("/orderplaced");  // Redirect to order placed page once order is placed.  // Note: This should be replaced with a real order placement API call.  // Also, make sure to handle any potential errors that may occur during the API call.  // You may want to use a try-catch block to handle these errors.  // Also, consider implementing error handling for the form submission process.  // For example, you could display an error message if the form submission fails.  // Remember to also handle any potential errors that may occur during the order placement process.  // You may want to use a try-catch block to handle these errors.  // Also, consider implementing error handling for the form submission process.  // For example, you could display an error message if the form submission fails.  // You may want to use a try-catch block to handle these errors.  // Also, consider
-
-    
+    navigate("/orderplaced");
   };
 
   const uniqueCartItems = cartItems.reduce((acc, item) => {
@@ -80,7 +103,32 @@ const Checkout = () => {
         </div>
         <div>
           <label>Address</label>
-          <input type="text" name="address" required />
+          <select
+            name="address"
+            value={selectedAddress}
+            onChange={(e) => setSelectedAddress(e.target.value)}
+          >
+            {addresses.length > 0 ? (
+              addresses.map((address, index) => (
+                <option key={index} value={address}>
+                  {address}
+                </option>
+              ))
+            ) : (
+              <option value="">No saved addresses</option>
+            )}
+            <option value="">Enter new address</option>
+          </select>
+          {selectedAddress === "" && (
+            <input
+              type="text"
+              name="address"
+              value={newAddress}
+              onChange={(e) => setNewAddress(e.target.value)}
+              placeholder="Enter new address"
+              required
+            />
+          )}
         </div>
         <button type="submit">Place Order</button>
       </form>
@@ -89,3 +137,7 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+
+
+

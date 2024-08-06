@@ -28,9 +28,9 @@ h1 {
 }
 
 .pagination button {
-  background-color: #93c4f9;
+  background-color: #f7eff9;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
@@ -40,7 +40,7 @@ h1 {
 }
 
 .pagination button:hover {
-  background-color: #0056b3;
+  background-color: #e2c9ec;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
@@ -61,6 +61,11 @@ h1 {
 
 * {
   font-family: "Manrope", sans-serif;
+}
+
+.filters:focus {
+  outline: none;
+  border: 2px solid #ac85bf;
 }
 
 

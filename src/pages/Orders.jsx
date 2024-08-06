@@ -24,6 +24,7 @@ const Orders = () => {
             <div key={order.orderId} className={styles.orderItem}>
               <h3>Order ID: {order.orderId}</h3>
               <p>Total: ${order.total}</p>
+              <p>Address : {order.address}</p>
               <h4>Items:</h4>
               {order.items.map((item, index) => (
                 <p key={index}>

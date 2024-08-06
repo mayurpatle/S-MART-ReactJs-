@@ -1,19 +1,26 @@
 /* Navbar.module.css */
 .navbar {
   background-color: #000000;
-  height :3rem    ;  
+  height :4rem    ;  
   font-family: "Manrope", sans-serif;
   padding: 10px;
   display: flex;
   flex-direction:row ;  
   justify-content: space-around;
+  width: 100%;
+  box-sizing: border-box;
+  
 }
+
+
 
 .navbar a {
   color: #80489C;
   text-decoration: none;
   padding: 8px 16px;
 }
+
+
 
 .navbar a:hover {
   background-color: none;
@@ -60,6 +67,8 @@ ul {
   align-items: center ;
   justify-content: flex-end;
   gap: 5px  ; 
+  width:40%  ; 
+  
 
 }
 
@@ -68,4 +77,6 @@ ul {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
+  width:200px ;  
+  
 }

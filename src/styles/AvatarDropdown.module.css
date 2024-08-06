@@ -26,10 +26,7 @@
   overflow: hidden;
 }
 
-Link {
-  color: black   ;
 
-}
 
 .email {
   margin: 10px;
@@ -54,3 +51,5 @@ Link {
 * {
     font-family: "Manrope", sans-serif;
 }
+
+

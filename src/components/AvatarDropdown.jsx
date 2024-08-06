@@ -25,17 +25,17 @@ const AvatarDropdown = () => {
       />
       {isDropdownOpen && (
         <div className={styles.dropdownMenu}>
-          <p className={styles.email}>{currentUser.email}</p>
-          <p><Link to="/wishlist">Wishlist {
+          <h4 className={styles.email}>{currentUser.email}</h4>
+          <h4><Link to="/wishlist" className={styles.menu}>Wishlist {
           (currentUser ? ((wishlistItems.length)) :  "")
         }
         
         
-          </Link>{" "}</p>
-          <Link to="/profile">My Profile</Link>
-          <button onClick={handleLogout} className={styles.logoutButton}>
+          </Link>{" "}</h4>
+          <h4><Link to="/profile" className={styles.menu}>My Profile</Link></h4>
+          <h4 onClick={handleLogout} className={styles.logoutButton}>
             Logout
-          </button>
+          </h4>
         </div>
       )}
     </div>
