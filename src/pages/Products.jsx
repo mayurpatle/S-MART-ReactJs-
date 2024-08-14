@@ -116,15 +116,27 @@ const Products = ({ searchQuery , isDarkMode }) => {
             <div key={product.id} className={` ${
                   isDarkMode ? styles.productItemDark : styles.productItem
                 }`}>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <p>${product.price}</p>
-              <p>Category :  {product.category}</p>
-              <Link to={`/products/${product.id}`}> View Details </Link>
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
-              <button onClick={() => addToWishlist(product)} >
-                Add to  Wishlist 
-              </button> {/* Wishlist button  */}
+              <div className={`${
+                  isDarkMode ? styles.imgContainerDark : styles.imgContainer 
+                }`}>
+                <img
+                src={product.img}
+                alt="img of  prod" />
+              </div>
+              <div className={styles.infoContainer}>
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
+                <p>${product.price}</p>
+                <p>Category :  {product.category}</p>
+                <Link to={`/products/${product.id}`}> View Details </Link>
+                <div className={styles.btnContainer}>
+                  <button onClick={() => addToCart(product)}>Add to Cart</button>
+                
+                  <button onClick={() => addToWishlist(product)} >
+                   Add to  Wishlist 
+                  </button> {/* Wishlist button  */}
+                </div>
+              </div>
             </div>
           ))}
         </div>
