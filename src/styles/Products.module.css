@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  transition: background-color 0.8s ease, color 0.6s ease;
 }
 
 .productItem {
@@ -61,12 +62,94 @@ h1 {
 
 * {
   font-family: "Manrope", sans-serif;
+  transition: background-color 0.8s ease, color 0.3s ease;
 }
 
 .filters:focus {
   outline: none;
   border: 2px solid #ac85bf;
 }
+
+/* Dark mode styles */
+
+
+.productListDark{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.8s ease, color 0.6s ease;
+}
+.productItemDark {
+  border: 1px solid #8a00ad;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  width: 30%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.8s ease, color 0.9s ease;
+}
+.paginationDark {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: #121212;
+  color: #ffffff;
+  transition: background-color 0.8s ease, color 0.6s ease;
+}
+.paginationDark button {
+  background-color: #262426;
+  
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius     :   10px  ; 
+  transition       :   background-color 0.8s ease;
+}
+
+.paginationDark button:hover {
+  background-color: #e2c9ec;
+}
+
+.productItemDark button {
+  background-color: #262426;
+  
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius     :   10px  ; 
+  transition       :   background-color 0.8s ease, color 0.6s ease;
+}
+
+.productItemDark button:hover {
+  background-color: #e2c9ec;
+}
+
+.productItem button {
+  background-color: #ffffff;
+  
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius     :   10px  ; 
+  transition       :   background-color 0.8s ease , color 0.3s ease;
+}
+
+.productItem button:hover {
+  background-color: #e2c9ec;
+}
+
+
+
 
 
 

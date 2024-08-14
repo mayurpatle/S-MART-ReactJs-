@@ -19,7 +19,7 @@
   height :  calc(100vh   -  3rem   ) ; 
   width:100% ; 
   border :  solid  1px rgb(151, 144, 144)    ; 
-  border-top: none ;  
+  border: none ;  
 
   background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)), url('../../public/hero-image-3.jpeg');
   background-size:cover ;

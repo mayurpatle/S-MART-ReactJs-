@@ -5,8 +5,8 @@ import styles from "../styles/Navbar.module.css";
 import { WishlistContext } from "../WishlistContext";
 import AvatarDropdown from "./AvatarDropdown";
 import { ShoppingCartContext } from "../ShoppingCartContext";
-
-const Navbar = ({ onSearch }) => {
+import DarkModeToggle from "./DarkModeToggle";
+const Navbar = ({ onSearch , isDarkMode , toggleDarkMode }) => {
   const { currentUser } = useContext(AuthContext);
   const [searchQuery, setSearchQuery] = useState("");
    
@@ -42,8 +42,10 @@ const Navbar = ({ onSearch }) => {
         {/* Wishlist link */}
         {currentUser && <Link to="/orders">Orders</Link>}
         {isAdmin && <Link to="/admin">Admin Dashboard</Link>} {/* Admin link */}
+        
       </div>
       <div className={styles.rightContainer}>
+        <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         <input
           type="text"
           value={searchQuery}

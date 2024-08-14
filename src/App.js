@@ -1,5 +1,5 @@
-import React from "react";
-import "./App.css";
+import React ,  {useEffect} from "react";
+
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -20,30 +20,46 @@ import ErrorBoundary  from "./ErrorBoundary";
 import Wishlist from "./components/Wishlist";
 import { WishlistProvider } from "./WishlistContext";
 import UserProfile from "./components/UserProfile";
+import styles from './App.module.css'
 function App() {
-  
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("darkMode");
+    if (storedTheme) {
+      setIsDarkMode(JSON.parse(storedTheme));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", isDarkMode);
+    document.body.className = isDarkMode ? "dark-mode" : "light-mode";
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
   
   return (
     <AuthProvider>
       <OrderProvider>
         <ShoppingCartProvider>
           <WishlistProvider>
-            
-            <Navbar onSearch={setSearchQuery} />
+            <div className={styles.app}> 
+            <Navbar onSearch={setSearchQuery} isDarkMode = {isDarkMode}  toggleDarkMode = {toggleDarkMode} />
             <Routes>
               
               <Route
                 path="/"
                 element={
                   <ErrorBoundary>
-                    <Home />
+                    <Home  isDarkMode=  {isDarkMode} />
                   </ErrorBoundary>
                 }
               />
               <Route
                 path="/products"
-                element={<Products searchQuery={searchQuery} />}
+                element={<Products searchQuery={searchQuery} isDarkMode= {isDarkMode} />}
               />
               <Route path="/products/:productId" element={<ProductDetail />} />
               <Route
@@ -94,6 +110,11 @@ function App() {
               }
               /> {/* Add route for UserProfile */}
             </Routes>
+            {/* Toast container for notifications */}
+            
+            </div>
+            <br></br>
+            <br></br>
           </WishlistProvider>
         </ShoppingCartProvider>
       </OrderProvider>

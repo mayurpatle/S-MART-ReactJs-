@@ -1,11 +1,11 @@
 import React ,  {useState ,  useEffect } from 'react'
-import { motion, useAnimation, useScroll  } from 'framer-motion';
+import {  useAnimation, useScroll  } from 'framer-motion';
 import styles from  '../styles/Home.module.css'
 import CustomCarousel  from '../components/CustomCarousel';
 import Whatsapp from  '../components/Whatsapp'
 import { Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
-const Home = () => {
+const Home = ({isDarkMode}) => {
   const  [images ,  setImages ]  = useState([])   ; 
   const controls = useAnimation();
   const { scrollY } = useScroll();
@@ -52,7 +52,7 @@ const Home = () => {
 
         
       </div>
-      <AnimatedSection>
+      <AnimatedSection isDarkMode={isDarkMode}>
       <CustomCarousel  images={images} />
       </AnimatedSection>
       <Whatsapp />

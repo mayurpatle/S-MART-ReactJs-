@@ -1,19 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import styles from "./styles/Checkout.module.css";
 import { AuthContext } from "./AuthContext";
 import { ShoppingCartContext } from "./ShoppingCartContext";
 import { useOrders } from "./OrderContext";
-
+import axios from "axios";
 const Checkout = () => {
   const { currentUser } = useContext(AuthContext);
   const { cartItems, clearCart, removeFromCart } = useContext(ShoppingCartContext);
   const { addOrder } = useOrders();
   const navigate = useNavigate();
-
+  const router = useNavigate()  ; 
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState("");
   const [newAddress, setNewAddress] = useState("");
+  const [amount  , setAmount ]  = useState("")  ;  
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
@@ -33,6 +35,11 @@ const Checkout = () => {
     console.log("Cart Items: ", cartItems);
     console.log("Total Price: ", totalPrice);
   }, [cartItems, totalPrice]);
+
+  useEffect(()=>{
+    setAmount(cartItems.reduce((sum  , item  ) => sum  + item.price , 0 ));
+
+  }, [cartItems])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -58,8 +65,52 @@ const Checkout = () => {
 
     await addOrder(order);
     clearCart();
+    toast.success('order placed')
     navigate("/orderplaced");
   };
+
+  const  handlePayment  = async () => {
+    const { data: order } = await axios.post('http://localhost:5000/api/create-order', {
+      amount,
+      currency: 'INR',
+    });
+
+    const options = {
+      key: 'YOUR_RAZORPAY_KEY_ID',
+      amount: order.amount,
+      currency: order.currency,
+      name: 'Your Company Name',
+      description: 'Test Transaction',
+      order_id: order.id,
+      handler: async function (response) {
+        const { data: verification } = await axios.post('http://localhost:5000/api/verify-payment', {
+          order_id: response.razorpay_order_id,
+          payment_id: response.razorpay_payment_id,
+          signature: response.razorpay_signature,
+        });
+
+        if (verification.status === 'success') {
+          alert('Payment successful!');
+          clearCart();
+          router.push('/orderplaced');
+        } else {
+          alert('Payment failed!');
+        }
+      },
+      prefill: {
+        name: currentUser?.displayName || 'John Doe',
+        email: currentUser?.email || 'johndoe@example.com',
+        contact: '9999999999',
+      },
+      theme: {
+        color: '#3399cc',
+      },
+    };
+
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+
+  }
 
   const uniqueCartItems = cartItems.reduce((acc, item) => {
     const foundItem = acc.find(accItem => accItem.id === item.id);
@@ -129,6 +180,12 @@ const Checkout = () => {
               required
             />
           )}
+        </div>
+        <div className={styles.total}>
+          <h2>Total: ₹{amount}</h2>
+        </div>
+        <div className={styles.paymentButton}>
+          <button onClick={handlePayment}>Pay Now</button>
         </div>
         <button type="submit">Place Order</button>
       </form>

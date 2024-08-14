@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from '../styles/AnimatedSection.module.css';
 
-const AnimatedSection = ({ children }) => {
+const AnimatedSection = ({ children ,  isDarkMode }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.1 });
 
@@ -24,7 +24,9 @@ const AnimatedSection = ({ children }) => {
       ref={ref}
       initial={{ opacity: 0, x: -100, rotateY: 90 }}
       animate={controls}
-      className={styles.animatedSection}
+      className={` ${
+                  isDarkMode ? styles.animatedSectionDark : styles.animatedSection
+                }`}
     >
       {children}
     </motion.div>

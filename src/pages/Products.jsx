@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../ShoppingCartContext";
 import { WishlistContext } from "../WishlistContext";
 import AnimatedSection from "../components/AnimatedSection";
-const Products = ({ searchQuery }) => {
+const Products = ({ searchQuery , isDarkMode }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -107,11 +107,15 @@ const Products = ({ searchQuery }) => {
           </select>
         </div>
 
-        <AnimatedSection>
+        <AnimatedSection isDarkMode = {isDarkMode}>
         {/* for product g display    */}
-        <div className={styles.productList}>
+        <div className={` ${
+                  isDarkMode ? styles.productListDark : styles.productList
+                }`}>
           {currentProducts.map((product) => (
-            <div key={product.id} className={styles.productItem}>
+            <div key={product.id} className={` ${
+                  isDarkMode ? styles.productItemDark : styles.productItem
+                }`}>
               <h2>{product.name}</h2>
               <p>{product.description}</p>
               <p>${product.price}</p>
@@ -128,7 +132,9 @@ const Products = ({ searchQuery }) => {
       </div>
 
       {/* for pagination  */}
-      <div className={styles.pagination}>
+      <div className={` ${
+                  isDarkMode ? styles.paginationDark : styles.pagination
+                }`}>
         <button onClick={prevButtonclick}> prev </button>
         {pageNumbers.map((number) => (
           <button key={number} onClick={(event) => handleClick(event, number)}>

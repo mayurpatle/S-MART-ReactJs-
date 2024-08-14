@@ -1,0 +1,19 @@
+
+.toggleButton{
+     
+    background-color: black;
+    color : #80489C ;
+    align-items: center;
+}
+
+.toggleButtonDark {
+   
+
+    align-items: center;
+    background-color: black !important;
+  color: #ffffff !important;
+  border: none;
+}
+/* how  cani make the  toggle  button always  fixed to the  viewing screen 
+ even when scrolling  */
+
